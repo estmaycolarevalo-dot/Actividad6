@@ -1,27 +1,25 @@
 <?xml version="1.0"?>
 <robot name="robot_con_pinza">
 
-  <!-- ============ MATERIALES ============ -->
   <material name="base_material">
-    <color rgba="0.3 0.3 0.3 1"/>  <!-- Gris oscuro -->
+    <color rgba="0.3 0.3 0.3 1"/> 
   </material>
   <material name="brazo1_material">
-    <color rgba="0.2 0.6 0.8 1"/>  <!-- Azul celeste -->
+    <color rgba="0.2 0.6 0.8 1"/>
   </material>
   <material name="brazo2_material">
-    <color rgba="0.9 0.5 0.1 1"/>  <!-- Naranja -->
+    <color rgba="0.9 0.5 0.1 1"/>
   </material>
   <material name="pinza_material">
-    <color rgba="0.8 0.2 0.2 1"/>  <!-- Rojo -->
+    <color rgba="0.8 0.2 0.2 1"/>
   </material>
   <material name="dedo_material">
-    <color rgba="0.9 0.9 0.9 1"/>  <!-- Blanco/gris claro -->
+    <color rgba="0.9 0.9 0.9 1"/>
   </material>
   <material name="efector_material">
-    <color rgba="0.0 0.8 0.0 1"/>  <!-- Verde -->
+    <color rgba="0.0 0.8 0.0 1"/>
   </material>
 
-  <!-- ============ LINK 0: BASE ============ -->
   <link name="base_link">
     <visual>
       <geometry>
@@ -38,7 +36,6 @@
     </collision>
   </link>
 
-  <!-- ============ JOINT 1: BASE - BRAZO1 ============ -->
   <joint name="joint_1" type="revolute">
     <parent link="base_link"/>
     <child link="brazo1_link"/>
@@ -48,7 +45,6 @@
     <dynamics damping="0.1" friction="0.05"/>
   </joint>
 
-  <!-- ============ LINK 1: BRAZO INFERIOR ============ -->
   <link name="brazo1_link">
     <visual>
       <geometry>
@@ -65,7 +61,6 @@
     </collision>
   </link>
 
-  <!-- ============ JOINT 2: BRAZO1 - BRAZO2 ============ -->
   <joint name="joint_2" type="revolute">
     <parent link="brazo1_link"/>
     <child link="brazo2_link"/>
@@ -75,7 +70,6 @@
     <dynamics damping="0.1" friction="0.05"/>
   </joint>
 
-  <!-- ============ LINK 2: BRAZO SUPERIOR ============ -->
   <link name="brazo2_link">
     <visual>
       <geometry>
@@ -92,7 +86,6 @@
     </collision>
   </link>
 
-  <!-- ============ JOINT 3: BRAZO2 - PINZA (APERTURA) ============ -->
   <joint name="joint_gripper" type="prismatic">
     <parent link="brazo2_link"/>
     <child link="gripper_base"/>
@@ -102,7 +95,6 @@
     <dynamics damping="0.2" friction="0.1"/>
   </joint>
 
-  <!-- ============ LINK 3: BASE DE LA PINZA ============ -->
   <link name="gripper_base">
     <visual>
       <geometry>
@@ -119,7 +111,6 @@
     </collision>
   </link>
 
-  <!-- ============ LINK 4: DEDO IZQUIERDO ============ -->
   <link name="dedo_izquierdo">
     <visual>
       <geometry>
@@ -136,7 +127,6 @@
     </collision>
   </link>
 
-  <!-- ============ JOINT 4: PINZA - DEDO IZQUIERDO ============ -->
   <joint name="joint_dedo_izq" type="prismatic">
     <parent link="gripper_base"/>
     <child link="dedo_izquierdo"/>
@@ -146,7 +136,6 @@
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
 
-  <!-- ============ LINK 5: DEDO DERECHO ============ -->
   <link name="dedo_derecho">
     <visual>
       <geometry>
@@ -163,7 +152,6 @@
     </collision>
   </link>
 
-  <!-- ============ JOINT 5: PINZA - DEDO DERECHO ============ -->
   <joint name="joint_dedo_der" type="prismatic">
     <parent link="gripper_base"/>
     <child link="dedo_derecho"/>
